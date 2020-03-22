@@ -47,14 +47,15 @@ CHECK_ENV
 rm -f certbot-auto
 # Download or update certbot-auto
 wget https://dl.eff.org/certbot-auto
-# Set Permissions
-chmod u+x certbot-auto authenticator.sh cleanup.sh
 
 if [ ! -f "certbot-auto" ] 
 then
     echo "File certbot-auto not found."
     exit 1
 fi
+
+# Set Permissions
+chmod u+x certbot-auto authenticator.sh cleanup.sh
 
 if [ ! -f "authenticator.sh" ] 
 then
