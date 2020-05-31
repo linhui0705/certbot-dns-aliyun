@@ -80,5 +80,5 @@ then
     ./certbot-auto --server https://acme-v02.api.letsencrypt.org/directory -d "*.example.com" --manual --manual-auth-hook "./authenticator.sh $AccessKeyId $AccessKeySecret" --manual-cleanup-hook "./cleanup.sh $AccessKeyId $AccessKeySecret" --manual-public-ip-logging-ok --preferred-challenges dns-01 certonly --dry-run > ./log/$(date +%Y%m%d)-$(date +%H%M%S)-test.log
 else
     # Run Scripts
-    ./certbot-auto renew --server https://acme-v02.api.letsencrypt.org/directory -d "*.example.com" --manual --manual-auth-hook "./authenticator.sh $AccessKeyId $AccessKeySecret" --manual-cleanup-hook "./cleanup.sh $AccessKeyId $AccessKeySecret" --manual-public-ip-logging-ok --preferred-challenges dns-01 > ./log/$(date +%Y%m%d)-$(date +%H%M%S).log
+    ./certbot-auto --server https://acme-v02.api.letsencrypt.org/directory -d "*.example.com" --manual --manual-auth-hook "./authenticator.sh $AccessKeyId $AccessKeySecret" --manual-cleanup-hook "./cleanup.sh $AccessKeyId $AccessKeySecret" --manual-public-ip-logging-ok --preferred-challenges dns-01 certonly > ./log/$(date +%Y%m%d)-$(date +%H%M%S).log
 fi
